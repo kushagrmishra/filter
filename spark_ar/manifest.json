@@ -1,0 +1,52 @@
+{
+  "name": "Pink Tilt Quiz",
+  "version": "1.0.0",
+  "description": "Head-tilt Breast Cancer Awareness Quiz Filter for Instagram and Facebook Stories / Reels.",
+  "author": "Pink Tilt Quiz",
+  "minSparkVersion": "175.0",
+  "targetPlatforms": [
+    "instagram",
+    "facebook"
+  ],
+  "cameraTargeting": "frontCamera",
+  "capabilities": {
+    "faceTracking": {
+      "maxFaces": 1,
+      "features": [
+        "headRotation",
+        "foreheadAnchor"
+      ]
+    },
+    "scripting": {
+      "language": "javascript",
+      "modules": [
+        "Scene",
+        "FaceTracking",
+        "Diagnostics",
+        "Time",
+        "TouchGestures",
+        "Reactive"
+      ]
+    },
+    "touchGestures": {
+      "tap": true
+    }
+  },
+  "sceneHierarchy": {
+    "Camera": {
+      "Focal Distance": {
+        "FaceTracker": {
+          "Head": {
+            "ForeheadAnchor": [
+              "txtQuestion",
+              "planeLeftCard (txtLeftOption)",
+              "planeRightCard (txtRightOption)",
+              "txtCounter",
+              "txtFeedback"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

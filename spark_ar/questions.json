@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "question": "What color ribbon represents breast cancer awareness?",
+    "correct": "Pink ribbon",
+    "wrong": "Yellow ribbon"
+  },
+  {
+    "id": 2,
+    "question": "Which month is Breast Cancer Awareness Month?",
+    "correct": "October",
+    "wrong": "May"
+  },
+  {
+    "id": 3,
+    "question": "Can men also develop breast cancer?",
+    "correct": "Yes, men can get it too",
+    "wrong": "No, only women"
+  },
+  {
+    "id": 4,
+    "question": "Is every breast lump a sign of cancer?",
+    "correct": "No, most lumps are benign",
+    "wrong": "Yes, all lumps are cancer"
+  },
+  {
+    "id": 5,
+    "question": "What is the primary early screening test for breast cancer?",
+    "correct": "Mammogram",
+    "wrong": "Blood test"
+  },
+  {
+    "id": 6,
+    "question": "About 1 in ___ women will develop breast cancer in their lifetime.",
+    "correct": "8",
+    "wrong": "50"
+  },
+  {
+    "id": 7,
+    "question": "At what age do routine screening mammograms usually begin?",
+    "correct": "Age 40",
+    "wrong": "Age 65"
+  },
+  {
+    "id": 8,
+    "question": "Does regular physical exercise help lower breast cancer risk?",
+    "correct": "Yes, it helps lower risk",
+    "wrong": "No, it has no effect"
+  },
+  {
+    "id": 9,
+    "question": "Does early detection significantly improve survival rates?",
+    "correct": "Yes, over 90% survival",
+    "wrong": "No, stage doesn't matter"
+  },
+  {
+    "id": 10,
+    "question": "What is the most common early sign of breast cancer?",
+    "correct": "A new painless lump",
+    "wrong": "A sudden neck rash"
+  },
+  {
+    "id": 11,
+    "question": "Which gene mutations are most famously linked to hereditary risk?",
+    "correct": "BRCA1 and BRCA2",
+    "wrong": "Trisomy 21"
+  },
+  {
+    "id": 12,
+    "question": "Does having dense breast tissue make mammograms harder to read?",
+    "correct": "Yes, tissue appears white",
+    "wrong": "No, it makes them clearer"
+  },
+  {
+    "id": 13,
+    "question": "Can alcohol consumption increase breast cancer risk?",
+    "correct": "Yes, higher intake raises risk",
+    "wrong": "No, alcohol lowers risk"
+  },
+  {
+    "id": 14,
+    "question": "What should you do if you notice a new breast lump or change?",
+    "correct": "Consult a doctor promptly",
+    "wrong": "Wait months to see"
+  },
+  {
+    "id": 15,
+    "question": "Does breastfeeding help lower a mother's breast cancer risk?",
+    "correct": "Yes, it offers protection",
+    "wrong": "No, it increases risk"
+  },
+  {
+    "id": 16,
+    "question": "Stage 0 non-invasive breast cancer is commonly called…",
+    "correct": "DCIS",
+    "wrong": "Metastatic cancer"
+  },
+  {
+    "id": 17,
+    "question": "Does wearing an underwire bra cause breast cancer?",
+    "correct": "No, that is a proven myth",
+    "wrong": "Yes, it traps toxins"
+  },
+  {
+    "id": 18,
+    "question": "Can antiperspirants or deodorants cause breast cancer?",
+    "correct": "No, there is no scientific link",
+    "wrong": "Yes, proven cause"
+  },
+  {
+    "id": 19,
+    "question": "What percentage of breast cancers are inherited from family?",
+    "correct": "About 5% to 10%",
+    "wrong": "Over 80%"
+  },
+  {
+    "id": 20,
+    "question": "What is a lumpectomy?",
+    "correct": "Removing the lump and a margin",
+    "wrong": "Removing the entire breast"
+  },
+  {
+    "id": 21,
+    "question": "What is a mastectomy?",
+    "correct": "Removing the breast tissue",
+    "wrong": "Taking a tiny skin scrape"
+  },
+  {
+    "id": 22,
+    "question": "What is a breast biopsy?",
+    "correct": "Taking a tissue sample to test",
+    "wrong": "An ultrasound scan"
+  },
+  {
+    "id": 23,
+    "question": "What does 'metastatic' breast cancer mean?",
+    "correct": "Spread to other body organs",
+    "wrong": "Contained in one tiny duct"
+  },
+  {
+    "id": 24,
+    "question": "Maintaining a healthy body weight after menopause helps…",
+    "correct": "Lower breast cancer risk",
+    "wrong": "Has zero health impact"
+  },
+  {
+    "id": 25,
+    "question": "Are mammograms recommended even if you feel completely healthy?",
+    "correct": "Yes, catches changes early",
+    "wrong": "No, only if you feel pain"
+  },
+  {
+    "id": 26,
+    "question": "Can a mammogram detect lumps before you can feel them by hand?",
+    "correct": "Yes, years before",
+    "wrong": "No, only huge lumps"
+  },
+  {
+    "id": 27,
+    "question": "What is 3D mammography formally called?",
+    "correct": "Tomosynthesis",
+    "wrong": "Elastography"
+  },
+  {
+    "id": 28,
+    "question": "Can a family history of breast cancer increase your risk?",
+    "correct": "Yes, especially close relatives",
+    "wrong": "No, genetics don't matter"
+  },
+  {
+    "id": 29,
+    "question": "Breast cancer that hasn't spread outside the breast is called…",
+    "correct": "Localized",
+    "wrong": "Distant"
+  },
+  {
+    "id": 30,
+    "question": "Is breast cancer usually painful in its early stages?",
+    "correct": "No, usually painless",
+    "wrong": "Yes, sharp continuous pain"
+  },
+  {
+    "id": 31,
+    "question": "Can breast ultrasound be used with mammograms for dense breasts?",
+    "correct": "Yes, gives extra clarity",
+    "wrong": "No, ultrasounds are never used"
+  },
+  {
+    "id": 32,
+    "question": "A diet rich in vegetables, fruits and fiber helps…",
+    "correct": "Support overall cancer prevention",
+    "wrong": "Guarantees you never get sick"
+  },
+  {
+    "id": 33,
+    "question": "Smoking tobacco is linked to…",
+    "correct": "Higher breast cancer risk",
+    "wrong": "Lower cancer risk"
+  },
+  {
+    "id": 34,
+    "question": "Does having a family member with breast cancer guarantee you'll get it?",
+    "correct": "No, it only raises relative risk",
+    "wrong": "Yes, 100% guarantee"
+  },
+  {
+    "id": 35,
+    "question": "What is the main goal of screening mammography?",
+    "correct": "Finding cancer early when treatable",
+    "wrong": "Preventing lumps entirely"
+  },
+  {
+    "id": 36,
+    "question": "Can hormone replacement therapy (HRT) influence risk?",
+    "correct": "Yes, long-term use can raise risk",
+    "wrong": "No, hormones have no effect"
+  },
+  {
+    "id": 37,
+    "question": "What is 'breast self-awareness'?",
+    "correct": "Knowing how your breasts normally feel",
+    "wrong": "Measuring breast size daily"
+  },
+  {
+    "id": 38,
+    "question": "For women with very high genetic risk, doctors may recommend…",
+    "correct": "Annual breast MRI",
+    "wrong": "Routine brain scans"
+  },
+  {
+    "id": 39,
+    "question": "Most breast cancers are diagnosed in women aged…",
+    "correct": "50 and older",
+    "wrong": "Under 20"
+  },
+  {
+    "id": 40,
+    "question": "Can a benign (non-cancerous) cyst turn into breast cancer?",
+    "correct": "Most benign cysts stay benign",
+    "wrong": "All cysts become cancer"
+  },
+  {
+    "id": 41,
+    "question": "What is the 5-year survival rate for localized early breast cancer?",
+    "correct": "Over 90%",
+    "wrong": "Under 30%"
+  },
+  {
+    "id": 42,
+    "question": "A sudden inward nipple retraction should be…",
+    "correct": "Checked by a doctor",
+    "wrong": "Ignored as normal aging"
+  },
+  {
+    "id": 43,
+    "question": "Does a needle biopsy cause cancer cells to spread?",
+    "correct": "No, biopsies are safe and standard",
+    "wrong": "Yes, spreads cancer"
+  },
+  {
+    "id": 44,
+    "question": "Can a father pass down a BRCA gene mutation to his daughter?",
+    "correct": "Yes, fathers can pass it down",
+    "wrong": "No, only mothers pass it"
+  },
+  {
+    "id": 45,
+    "question": "What does 'remission' mean in cancer treatment?",
+    "correct": "Signs and symptoms have disappeared",
+    "wrong": "The cancer doubled in size"
+  },
+  {
+    "id": 46,
+    "question": "Radiation therapy after a lumpectomy helps…",
+    "correct": "Destroy any microscopic cells left",
+    "wrong": "Restore breast milk"
+  },
+  {
+    "id": 47,
+    "question": "Which hormone fuels the majority of hormone-receptor positive cancers?",
+    "correct": "Estrogen",
+    "wrong": "Insulin"
+  },
+  {
+    "id": 48,
+    "question": "Tamoxifen is a common medicine that works by…",
+    "correct": "Blocking estrogen from cancer cells",
+    "wrong": "Inducing deep sleep"
+  },
+  {
+    "id": 49,
+    "question": "Can regular checkups after treatment help catch recurrence early?",
+    "correct": "Yes, vital for survivorship",
+    "wrong": "No, follow-ups are useless"
+  },
+  {
+    "id": 50,
+    "question": "The famous pink ribbon awareness symbol was launched in…",
+    "correct": "The 1990s (1992)",
+    "wrong": "The 1800s"
+  }
+]

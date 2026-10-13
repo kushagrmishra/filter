@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Pink Tilt Quiz — Breast Cancer Awareness</title>
+  <meta name="description" content="A mobile-first TikTok face filter quiz for breast cancer awareness played by tilting your head.">
+  <meta name="theme-color" content="#FE2C55">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval' 'unsafe-eval'; connect-src 'self' https://cdn.jsdelivr.net https://storage.googleapis.com blob: data:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container" class="camera-inactive">
+    <!-- Camera Video Feed (Selfie view) -->
+    <video id="camera-feed" class="camera-feed" playsinline webkit-playsinline muted autoplay></video>
+    
+    <!-- Ambient Overlays -->
+    <div class="camera-overlay-gradient"></div>
+    <div class="fallback-camera-bg"></div>
+
+    <!-- Top Floating HUD: Brand badge & sound toggle -->
+    <header class="top-hud">
+      <div class="brand-badge">
+        <span class="ribbon-emoji">🎀</span>
+        <span>PINK TILT QUIZ</span>
+      </div>
+      <div class="hud-actions">
+        <button id="btn-ar-toggle" class="icon-btn active-filter" type="button" aria-label="Toggle AR Forehead Tracking" title="AR Forehead Tracking: ON">
+          🏷️
+        </button>
+        <button id="btn-sound-toggle" class="icon-btn" type="button" aria-label="Toggle sound" title="Toggle sound">
+          🔊
+        </button>
+      </div>
+    </header>
+
+    <!-- Face Detection & Neutral Reset Status Pills -->
+    <div id="face-hint" class="face-hint-pill hidden" aria-live="polite">
+      SHOW YOUR FACE TO THE CAMERA 🙂
+    </div>
+    <div id="neutral-hint" class="neutral-hint-pill" aria-live="polite">
+      RETURN HEAD TO CENTER ⟲
+    </div>
+
+    <!-- Main Quiz Section: Top Frosted Glass Card -->
+    <main class="quiz-section">
+      <div id="quiz-card" class="quiz-card">
+        <h1 id="question-text" class="question-text">
+          Loading question…
+        </h1>
+        <div class="answers-container">
+          <button id="answer-left" class="answer-btn answer-left" type="button" aria-label="Left Answer">
+            <span id="answer-left-label" class="answer-label">Option A</span>
+            <div id="answer-left-fill" class="tilt-progress-fill"></div>
+          </button>
+
+          <div id="tilt-divider" class="tilt-divider" aria-hidden="true">⚡</div>
+
+          <button id="answer-right" class="answer-btn answer-right" type="button" aria-label="Right Answer">
+            <span id="answer-right-label" class="answer-label">Option B</span>
+            <div id="answer-right-fill" class="tilt-progress-fill"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Guidance Below Card -->
+      <p class="tilt-hint-text">TILT HEAD OR TAP TO PICK</p>
+    </main>
+
+    <!-- Bottom HUD: Awareness Ribbon Completion Tracker -->
+    <footer class="bottom-hud">
+      <div class="progress-container" aria-label="Quiz progress">
+        <div class="ribbon-wrapper">
+          <svg class="ribbon-svg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="ribbon-clip">
+                <rect id="ribbon-clip-rect" x="0" y="120" width="100" height="0" />
+              </clipPath>
+            </defs>
+            <!-- Background Translucent Ribbon Track -->
+            <path class="ribbon-bg" d="M 28 108 C 32 88, 42 72, 50 63 C 62 49, 74 38, 72 23 C 69 11, 58 8, 50 8 C 42 8, 31 11, 28 23 C 26 38, 38 49, 50 63 C 58 72, 68 88, 72 108" />
+            <!-- Foreground Pink Ribbon filling from bottom to top -->
+            <path class="ribbon-fg" clip-path="url(#ribbon-clip)" d="M 28 108 C 32 88, 42 72, 50 63 C 62 49, 74 38, 72 23 C 69 11, 58 8, 50 8 C 42 8, 31 11, 28 23 C 26 38, 38 49, 50 63 C 58 72, 68 88, 72 108" />
+          </svg>
+        </div>
+        <div id="progress-counter" class="progress-counter">0 / 5</div>
+      </div>
+
+      <!-- TikTok Filter Record Controls -->
+      <div class="record-control-wrapper">
+        <div class="tiktok-filter-tag">🎵 Pink Tilt Quiz • TikTok Effect</div>
+        <div class="record-button-row">
+          <button id="btn-record-timer" class="filter-control-btn ig-control-btn" type="button" aria-label="Hands-free 3 second timer" title="Hands-free Timer">
+            <span class="control-icon">⏱️</span>
+            <span id="timer-label" class="control-btn-label">Off</span>
+          </button>
+
+          <button id="btn-record" class="record-btn" type="button" aria-label="Record filter video for TikTok" title="Record video">
+            <span class="record-btn-ring"></span>
+            <span class="record-btn-core"></span>
+          </button>
+
+          <button id="btn-camera-flip" class="filter-control-btn ig-control-btn" type="button" aria-label="Flip camera" title="Flip Camera">
+            <span class="control-icon">🔄</span>
+            <span class="control-btn-label">Flip</span>
+          </button>
+        </div>
+
+        <div id="recording-badge" class="recording-badge hidden">
+          <span class="rec-dot"></span>
+          <span id="recording-timer">00:00</span>
+        </div>
+      </div>
+
+      <!-- Tilt Balance Visual Cue -->
+      <div class="tilt-meter" title="Head tilt indicator">
+        <span>TILT</span>
+        <div class="tilt-meter-bar">
+          <div id="tilt-meter-dot" class="tilt-meter-dot"></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- TikTok Hands-Free 3s Countdown Overlay -->
+    <div id="countdown-overlay" class="countdown-overlay hidden">
+      <div id="countdown-number" class="countdown-number">3</div>
+    </div>
+
+    <!-- Hidden Canvas for Video Recording -->
+    <canvas id="recorder-canvas" width="720" height="1280" style="display: none;"></canvas>
+
+    <!-- Full-screen Video Export / TikTok Share Modal -->
+    <div id="video-export-modal" class="fullscreen-modal hidden" role="dialog" aria-modal="true" aria-label="Share filter recording">
+      <div class="glass-sheet video-export-sheet">
+        <div class="export-header">
+          <span class="tiktok-header-icon">🎵</span>
+          <h3 class="export-title">Your TikTok Filter Video</h3>
+        </div>
+        <div class="video-preview-wrapper">
+          <video id="recorded-preview" playsinline webkit-playsinline controls loop autoplay></video>
+        </div>
+        <div class="modal-buttons">
+          <button id="btn-share-tiktok" class="primary-btn tiktok-share-btn" type="button">
+            <span class="tiktok-btn-icon">🎵</span> Share to TikTok
+          </button>
+          <button id="btn-download-video" class="secondary-btn download-btn" type="button">
+            Save Video (.mp4 / .webm) 💾
+          </button>
+          <button id="btn-close-export" class="secondary-btn" type="button">
+            Back to Quiz
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full-screen Dark Modal on Wrong Answer -->
+    <div id="wrong-answer-modal" class="fullscreen-modal hidden" role="dialog" aria-modal="true" aria-label="Wrong answer explanation">
+      <div class="wrong-modal-content">
+        <h2 class="wrong-modal-title">Not quite 💗</h2>
+        <div class="wrong-modal-label">Correct answer:</div>
+        <div id="wrong-modal-answer" class="wrong-modal-answer">X-rays</div>
+        <div class="wrong-modal-tap-hint">Tap anywhere to continue</div>
+      </div>
+    </div>
+
+    <!-- Start Screen Overlay -->
+    <div id="start-screen" class="screen-overlay active">
+      <div class="glass-sheet start-sheet">
+        <div class="brand-ribbon-icon">🎀</div>
+        <h2 class="app-title">Pink Tilt Quiz</h2>
+        <p class="app-tagline">Breast Cancer Awareness</p>
+
+        <div class="instructions-box">
+          <p class="instruction-main">Tilt your head to pick an answer — or tap to choose!</p>
+          <div class="instruction-icons">
+            <div class="tilt-guide-item">
+              <span class="guide-arrow">⤹</span>
+              <span class="guide-text">Tilt Left</span>
+            </div>
+            <div class="tilt-guide-item divider">⚡</div>
+            <div class="tilt-guide-item">
+              <span class="guide-arrow">⤥</span>
+              <span class="guide-text">Tilt Right</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="privacy-callout">
+          <span class="lock-icon">🔒</span>
+          <span>All processing stays on your device. No video is uploaded or stored.</span>
+        </div>
+
+        <button id="btn-start" class="primary-btn pulse-glow" type="button">
+          Allow camera &amp; start
+        </button>
+        <button id="btn-play-tap" class="secondary-btn" type="button">
+          Play with tap only
+        </button>
+      </div>
+    </div>
+
+    <!-- End Screen Overlay -->
+    <div id="end-screen" class="screen-overlay hidden">
+      <div class="glass-sheet end-sheet">
+        <div class="trophy-icon">🏆</div>
+        <h2 class="app-title">Quiz Complete!</h2>
+        <div id="final-score" class="score-display">5 / 5</div>
+        <p id="final-message" class="score-message">Perfect! You're a champion 🎀</p>
+
+        <div class="awareness-card">
+          <span class="ribbon-small">🎗️</span>
+          <p class="awareness-text">
+            October is Breast Cancer Awareness Month. Know your normal, and talk to a doctor about screening.
+          </p>
+        </div>
+
+        <button id="btn-play-again" class="primary-btn" type="button">
+          Play again 🎀
+        </button>
+      </div>
+    </div>
+
+    <!-- Camera Error / Denied Modal -->
+    <div id="camera-error-modal" class="fullscreen-modal hidden" role="dialog" aria-modal="true">
+      <div class="glass-sheet error-sheet">
+        <div class="error-icon">📷⚠️</div>
+        <h3 class="error-title">Camera Access</h3>
+        <p id="error-message" class="error-desc">
+          Camera access was blocked or is unavailable. You can retry camera permission or enjoy the quiz with tap controls!
+        </p>
+        <div class="modal-buttons">
+          <button id="btn-retry-camera" class="primary-btn" type="button">Retry Camera</button>
+          <button id="btn-fallback-tap" class="secondary-btn" type="button">Play with Tap Only</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
